@@ -3,18 +3,16 @@ import 'package:todoey/widgets/tasks_list.dart';
 import 'package:todoey/screens/add_task_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:todoey/models/task_data.dart';
+import 'package:todoey/models/task.dart';
 
-class TasksScreen extends StatefulWidget {
-  @override
-  _TasksScreenState createState() => _TasksScreenState();
-}
-
-class _TasksScreenState extends State<TasksScreen> {
+class TasksScreen extends StatelessWidget {
   void addTask(String newTask) {
     // setState(() {
-    //   tasks.add(Task(taskName: newTask));
+    //   Provider.of<TaskData>(context, listen: false)
+    //       .tasks
+    //       .add(Task(taskName: newTask));
     // });
-    Navigator.pop(context);
+    // Navigator.pop(context);
   }
 
   @override
@@ -31,9 +29,7 @@ class _TasksScreenState extends State<TasksScreen> {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTaskScreen(
-                  addTaskCallback: addTask,
-                ),
+                child: AddTaskScreen(),
               ),
             ),
           );
